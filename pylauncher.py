@@ -44,7 +44,7 @@ __all__ = [
 LAUNCHER_NAME = "Batchpy Launcher"
 LAUNCHER_VERSION = "2.0.0"
 LAUNCHER_AUTHORS = ["Kotsasmin", "Github contributors"]
-LAUNCHER_COPYRIGHT = "Batchpy Launcher  Copyright (C) 2021  Théo Rozier"
+LAUNCHER_COPYRIGHT = "Batchpy Launcher  Copyright (C) Kotsasmin"
 LAUNCHER_URL = "https://github.com/Kotsasmin/Minecraft_Batchpy_Launcher"
 
 
