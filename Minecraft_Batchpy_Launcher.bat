@@ -4,7 +4,7 @@ cls
 echo Loading...
 title Minecraft Batchpy Launcher
 set "launcher=%cd%\bin\launcher.py"
-set "launcher_url=https://raw.githubusercontent.com/Kotsasmin/Minecraft_Batchpy_Launcher/main/pylauncher.py?token=AQLITFQDE6WPBM26MNE3LDLBBPBHU"
+set "launcher_url=https://raw.githubusercontent.com/Kotsasmin/Minecraft_Batchpy_Launcher/main/pylauncher.py"
 set "mcVersion=1.16.5"
 set "ram=1024"
 set "accountMode="
