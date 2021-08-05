@@ -2,9 +2,9 @@
 color f
 cls
 echo Loading...
-title Minecraft Launcher (Alpha)
+title Minecraft Batchpy Launcher
 set "launcher=%cd%\bin\launcher.py"
-set "launcher_url=https://raw.githubusercontent.com/mindstorm38/portablemc/master/portablemc.py"
+set "launcher_url=https://raw.githubusercontent.com/Kotsasmin/Minecraft_Batchpy_Launcher/main/pylauncher.py?token=AQLITFSXUGSBIANTT6F5UFLBBPADE"
 set "mcVersion=1.16.5"
 set "ram=1024"
 set "accountMode="
