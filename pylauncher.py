@@ -2,23 +2,8 @@
 
 # encoding: utf8
 
-# Copyright (C) 2021  Théo Rozier
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 """
-Core module of PortableMC, it provides a flexible API to download and start Minecraft.
+Core module of Batchpy Launcher, it provides a flexible API to download and start Minecraft.
 """
 
 from typing import cast, Generator, Callable, Optional, Tuple, Dict, Type, List
@@ -56,11 +41,11 @@ __all__ = [
 ]
 
 
-LAUNCHER_NAME = "portablemc"
+LAUNCHER_NAME = "Batchpy Launcher"
 LAUNCHER_VERSION = "2.0.0"
-LAUNCHER_AUTHORS = ["Théo Rozier <contact@theorozier.fr>", "Github contributors"]
-LAUNCHER_COPYRIGHT = "PortableMC  Copyright (C) 2021  Théo Rozier"
-LAUNCHER_URL = "https://github.com/mindstorm38/portablemc"
+LAUNCHER_AUTHORS = ["Kotsasmin", "Github contributors"]
+LAUNCHER_COPYRIGHT = "Batchpy Launcher  Copyright (C) 2021  Théo Rozier"
+LAUNCHER_URL = "https://github.com/Kotsasmin/Minecraft_Batchpy_Launcher"
 
 
 class Context:
