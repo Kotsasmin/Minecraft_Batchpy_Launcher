@@ -2,7 +2,7 @@
 color f
 cls
 echo Loading...
-title Minecraft Batchpy Launcher
+title Minecraft Launcher ^| By Kotsasmin
 set "launcher=%cd%\bin\launcher.py"
 set "launcher_url=https://raw.githubusercontent.com/Kotsasmin/Minecraft_Batchpy_Launcher/main/pylauncher.py"
 set "mcVersion=1.16.5"
