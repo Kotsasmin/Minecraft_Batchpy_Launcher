@@ -9,7 +9,7 @@ set "mcVersion=1.16.5"
 set "ram=1024"
 set "accountMode="
 set "guest=false"
-set "version=1.1"
+set "version=1.2"
 set "args=-Xmx%ram%M -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M"
 call:internet
 if not exist data mkdir data
@@ -523,9 +523,11 @@ goto pythonRetry
 if %internet%==0 goto:EOF
 curl.exe -L -s -o version.bat https://raw.githubusercontent.com/Kotsasmin/Minecraft_Batchpy_Launcher/main/version.txt
 call version.bat
+timeout 1 /nobreak >nul
 del version.bat
 if %version%==%latestVersion% goto:EOF
-curl.exe -L -s -o "%cd%\Minecraft Full Launcher %latestVersion%" "https://raw.githubusercontent.com/Kotsasmin/Minecraft_Batchpy_Launcher/main/Minecraft_Batchpy_Launcher.bat"
-start "%cd%\Minecraft Full Launcher %latestVersion%"
-(goto) 2>nul & del "%~f0"
+curl.exe -L -s -o "%cd%\Minecraft Launcher %latestVersion%.bat" "https://raw.githubusercontent.com/Kotsasmin/Minecraft_Batchpy_Launcher/main/Minecraft_Batchpy_Launcher.bat"
+start "" "%cd%\Minecraft Launcher %latestVersion%.bat"
+timeout 1 /nobreak >nul
+del "%~nx0%"
 exit
