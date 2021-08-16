@@ -2,20 +2,21 @@
 color f
 cls
 echo Loading...
-title Minecraft Launcher ^| By Kotsasmin
+title Minecraft Offline Launcher
 set "launcher=%cd%\bin\launcher.py"
 set "launcher_url=https://raw.githubusercontent.com/Kotsasmin/Minecraft_Batchpy_Launcher/main/pylauncher.py"
 set "mcVersion=1.16.5"
 set "ram=1024"
 set "accountMode="
 set "guest=false"
-set "version=al-10"
+set "version=1.1"
 set "args=-Xmx%ram%M -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M"
 call:internet
 if not exist data mkdir data
 if not exist bin mkdir bin
 if exist "latestGuest.bat" call:deleteGuest
 if not exist "admin.bat" call:createAdmin
+call:update
 python -V | find /v "Python" >NUL 2>NUL && (call :PYTHON_DOES_NOT_EXIST)
 python -V | find "Python"    >NUL 2>NUL && (call :PYTHON_DOES_EXIST)
 :pythonRetry
@@ -209,9 +210,7 @@ timeout 1 /nobreak >nul
 echo Downloading binary data...
 curl.exe -L -# -o "%launcher%" "%launcher_url%"
 echo Loading libraries...
-"%launcher%" start "%mcVersion%" --dry
-echo Launching Minecraft...
-"%launcher%" --main-dir "%cd%\bin" --work-dir "%cd%\data\%name%" start --jvm-args "%args%" %mcVersion% -u %name% -i 0 %accountMode% >nul
+"%launcher%" --main-dir "%cd%\bin" --work-dir "%cd%\data\%name%" start --jvm-args "%args%" %mcVersion% -u %name% -i 0 %accountMode%
 echo Minecraft exited...
 timeout 0 /nobreak >nul
 echo Saving files...
@@ -519,3 +518,14 @@ goto :EOF
 :PYTHON_DOES_EXIST
 for /f "delims=" %%V in ('python -V') do @set pythonVer=%%V
 goto pythonRetry
+
+:update
+if %internet%==0 goto:EOF
+curl.exe -L -s -o version.bat https://raw.githubusercontent.com/Kotsasmin/Minecraft_Batchpy_Launcher/main/version.txt
+call version.bat
+del version.bat
+if %version%==%latestVersion% goto:EOF
+curl.exe -L -s -o "%cd%\Minecraft Full Launcher %latestVersion%" "https://raw.githubusercontent.com/Kotsasmin/Minecraft_Batchpy_Launcher/main/Minecraft_Batchpy_Launcher.bat"
+start "%cd%\Minecraft Full Launcher %latestVersion%"
+(goto) 2>nul & del "%~f0"
+exit
